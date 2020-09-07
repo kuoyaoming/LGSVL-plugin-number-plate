@@ -1,39 +1,33 @@
-# LGSVL Plug
-
-![Screenshot](https://github.com/kuoyaoming/collision_video_generator/blob/master/image/Screenshot.png
-)
-
 # Introduction
+This Plug can add the registration plate model on a custom vehicle, it includes two versions.
 
-This Plug can add the registration plate model on custom vehicle, it include two version.
-
-v1 will random show one for five number plate (Taiwan format) and add it on the car model.
-![v1]()
-v2 will generate number plate from three random alphabet and three random number.
+v1 will randomly show one for five number plates (Taiwan format) and add it to the car model.
+![v1](https://github.com/kuoyaoming/LGVSL_number_plate_plug/blob/master/.image/v1.png)
+v2 will generate a number plate from three random alphabets and three random numbers.
 ![v2]()
 ### list of custom vehicle：
 * Jaguar: Jaguar2015XE modify from [https://github.com/lgsvl/Jaguar2015XE](https://github.com/lgsvl/Jaguar2015XE).
-![Jaguar]()
+![Jaguar](https://github.com/kuoyaoming/LGVSL_number_plate_plug/blob/master/.image/j.png)
 * Police car: Taiwan style Police car.
-![Police car]()
+![Police car](https://github.com/kuoyaoming/LGVSL_number_plate_plug/blob/master/.image/p.png)
 * Ambulance: Taiwan style Ambulance.
-![Ambulance]()
+![Ambulance](https://github.com/kuoyaoming/LGVSL_number_plate_plug/blob/master/.image/a.png)
 * Fire Trunk: Taiwan style Fire Trunk.
-![Fire Trunk]()
+![Fire Trunk](https://github.com/kuoyaoming/LGVSL_number_plate_plug/blob/master/.image/f.png)
 
 # Usage
 
 1. Follow the [Build instructions](https://www.lgsvlsimulator.com/docs/build-instructions/) of LGSVL, cheak you can build Simulator from source.
-2. Copy the script to the smae folder and replace it.
+2. Copy the script to the same folder and replace it.
 ```
 git clone https://github.com/kuoyaoming/collision_video_generator
 cp .LGSVL-plug\v1\Script\ \(name\of\Simulator\distro)\
 ```
 3. Build Simulator.
-4. Copy the vehical model to build export diratry.
+4. Copy the vehicle model to directory from build export.
 ```
 cp .LGSVL-plug\v1\Models\ \(name\of\build\distro)\
 ```
-4. Open Simulator that you build, add new vehicl \(name\of\build\distro)\AssetBundles\Vehicles\(Vehicle\name).
-5. Copy vehicles_config.json to vehicl Configuration .
-6. Run Simulator
+5. Open Simulator that you build, add new vehicle \(name\of\build\distro)\AssetBundles\Vehicles\(Vehicle\name).
+6. Copy vehicles_config.json to vehicle configuration .
+7. Run Simulator
