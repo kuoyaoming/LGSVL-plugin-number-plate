@@ -1,33 +1,92 @@
-# Introduction
-This Plug can add the registration plate model on a custom vehicle, it includes two versions.
+# LGSVL Number Plate Plugin
 
-v1 will randomly show one for five number plates (Taiwan format) and add it to the car model.
-![v1](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/v1.png)
-v2 will generate a number plate from three random alphabets and three random numbers.
-![v2]()
-### list of custom vehicle：
-* Jaguar: Jaguar2015XE modify from [https://github.com/lgsvl/Jaguar2015XE](https://github.com/lgsvl/Jaguar2015XE).
-![Jaguar](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/j.png)
-* Police car: Taiwan style Police car.
-![Police car](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/p.png)
-* Ambulance: Taiwan style Ambulance.
-![Ambulance](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/a.png)
-* Fire Trunk: Taiwan style Fire Trunk.
-![Fire Trunk](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/f.png)
+Add registration plates to custom vehicles in the LGSVL/SVL Simulator. This repository includes two variants you can choose from.
 
-# Usage
+## Versions
 
-1. Follow the [Build instructions](https://www.lgsvlsimulator.com/docs/build-instructions/) of LGSVL, cheak you can build Simulator from source.
-2. Copy the script to the same folder and replace it.
+- v1: Randomly selects one of five Taiwan-style number plates and attaches it to the vehicle model.
+  
+  ![v1](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/v1.png)
+
+- v2: Generates a plate composed of three random letters followed by three random digits (e.g., ABC-123).
+
+## Included custom vehicles
+
+- Jaguar: `Jaguar2015XE`, modified from [https://github.com/lgsvl/Jaguar2015XE](https://github.com/lgsvl/Jaguar2015XE).
+  
+  ![Jaguar](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/j.png)
+
+- Police car: Taiwan style police car.
+  
+  ![Police car](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/p.png)
+
+- Ambulance: Taiwan style ambulance.
+  
+  ![Ambulance](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/a.png)
+
+- Fire truck: Taiwan style fire truck.
+  
+  ![Fire Truck](https://github.com/kuoyaoming/LGSVL-plugin-number-plate/blob/master/.image/f.png)
+
+## Requirements
+
+- A working local build of LGSVL/SVL Simulator from source. Follow the official guide: https://www.lgsvlsimulator.com/docs/build-instructions/
+
+## Quick start
+
+1) Clone this repository
+
+```bash
+git clone https://github.com/kuoyaoming/LGSVL-plugin-number-plate
+cd LGSVL-plugin-number-plate
 ```
-git clone https://github.com/kuoyaoming/collision_video_generator
-cp .LGSVL-plug\v1\Script\ \(name\of\Simulator\distro)\
+
+2) Choose a version (v1 or v2) and copy the script into your Simulator source tree
+
+- Back up your original file first: `Assets/Scripts/Dynamics/Examples/VehicleSMI.cs`
+- Then replace it with the version you want:
+
+```bash
+# Example for v1
+cp -f v1/Script/Assets/Scripts/Dynamics/Examples/VehicleSMI.cs \<SIMULATOR_SOURCE_ROOT\>/Assets/Scripts/Dynamics/Examples/VehicleSMI.cs
+
+# Example for v2
+cp -f v2/Script/Assets/Scripts/Dynamics/Examples/VehicleSMI.cs \<SIMULATOR_SOURCE_ROOT\>/Assets/Scripts/Dynamics/Examples/VehicleSMI.cs
 ```
-3. Build Simulator.
-4. Copy the vehicle model to directory from build export.
+
+3) Build the Simulator from source (per the official guide)
+
+4) Copy the provided vehicle AssetBundles into your built Simulator distribution
+
+```bash
+# v1 includes Jaguar example
+cp -r v1/Models/AssetBundles/Vehicles/* \<SIMULATOR_BUILD_DIR\>/AssetBundles/Vehicles/
+
+# v2 includes Police, Ambulance, Fire Truck
+cp -r v2/Models/AssetBundles/Vehicles/* \<SIMULATOR_BUILD_DIR\>/AssetBundles/Vehicles/
 ```
-cp .LGSVL-plug\v1\Models\ \(name\of\build\distro)\
-```
-5. Open Simulator that you build, add new vehicle \(name\of\build\distro)\AssetBundles\Vehicles\(Vehicle\name).
-6. Copy vehicles_config.json to vehicle configuration .
-7. Run Simulator
+
+5) Add vehicle configuration
+
+Copy `vehicles_config.json` from the repository root into your Simulator's vehicle configuration location (or import via the Web UI if applicable). The exact directory may vary by build; a common setup is alongside other vehicle JSON files in the built distribution.
+
+6) Run the Simulator and add the vehicles
+
+- Open your built Simulator.
+- Add a new vehicle by selecting the corresponding bundle under `AssetBundles/Vehicles/`.
+- Ensure the vehicle configuration is recognized.
+
+## Notes
+
+- v1 uses a fixed set of Taiwan-style plates; v2 generates plates at runtime (three letters + three numbers).
+- The provided assets are intended as examples. You can adapt the scripts to your own vehicles.
+
+## Branch compatibility
+
+- Tested primarily against the Simulator's `master` branch.
+- Paths shown (e.g., `Assets/Scripts/Dynamics/Examples/VehicleSMI.cs`) reflect the `master` layout and may differ on other branches/tags.
+- If your branch has a different directory structure, adjust the copy paths accordingly.
+
+## Credits
+
+- Jaguar asset based on `Jaguar2015XE`: https://github.com/lgsvl/Jaguar2015XE
