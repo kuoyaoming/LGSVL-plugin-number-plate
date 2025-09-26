@@ -81,6 +81,12 @@ Copy `vehicles_config.json` from the repository root into your Simulator's vehic
 - v1 uses a fixed set of Taiwan-style plates; v2 generates plates at runtime (three letters + three numbers).
 - The provided assets are intended as examples. You can adapt the scripts to your own vehicles.
 
+## Branch compatibility
+
+- Tested primarily against the Simulator's `master` branch.
+- Paths shown (e.g., `Assets/Scripts/Dynamics/Examples/VehicleSMI.cs`) reflect the `master` layout and may differ on other branches/tags.
+- If your branch has a different directory structure, adjust the copy paths accordingly.
+
 ## Credits
 
 - Jaguar asset based on `Jaguar2015XE`: https://github.com/lgsvl/Jaguar2015XE
